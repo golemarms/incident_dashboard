@@ -1,0 +1,36 @@
+# Metadata for PUB CCTV
+---
+Identifier: '88631a05-675e-44d3-88aa-2e5f6c387074'
+Name: 'pub-cctv'
+Title: 'PUB CCTV'
+Description: 'CCTVs installed by PUB for flood monitoring which are available for
+  public viewing'
+Topics:
+  - 'Environment'
+Keywords:
+  - 'CCTV'
+  - 'Public'
+Publisher:
+  Name: 'PUB, Singapore''s national water agency'
+  Admin 1:
+    Name: 'Ang Boon Chuang'
+    Department: 'PUBLIC UTILITIES BOARD'
+    Email: 'ANG_Boon_Chuang@pub.gov.sg'
+Sources:
+  - 'PUB, Singapore''s national water agency'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Annual'
+Last Updated: '2019-10-09T11:48:03.026709'
+Resources:
+  -
+    Identifier: 'b6d3129e-4c26-41de-994f-0c1228e77843'
+    Title: 'PUB CCTV (KML)'
+    Url: 'https://geo.data.gov.sg/pub-cctv-public/2019/06/11/kml/pub-cctv-public.kml'
+    Format: 'KML'
+    Last Updated: '2019-06-10T16:00:00'
+  -
+    Identifier: 'e61648ab-14a1-4513-a757-f136f0753a8b'
+    Title: 'PUB CCTV (GEOJSON)'
+    Url: 'https://geo.data.gov.sg/pub-cctv-public/2019/06/11/geojson/pub-cctv-public.geojson'
+    Format: 'GeoJSON'
+    Last Updated: '2019-06-10T16:00:00'

@@ -1,0 +1,7 @@
+require(tidyverse)
+require(sf)
+require(leaflet)
+
+pub_cctv_sf_raw <- read_sf("data/pub-cctv/pub-cctv-geojson.geojson")
+pub_sensor_sf_raw <- read_sf("data/pub-water-level-sensors/pub-water-level-sensors-kml.kml")
+lta_roadcam_sf_raw <- read_sf("data/lta-road-camera/lta-road-camera-shp/LTA_Road_Enforcement_Camera.shp")

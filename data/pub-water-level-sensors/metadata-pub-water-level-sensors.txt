@@ -1,0 +1,32 @@
+# Metadata for PUB Water Level Sensors
+---
+Identifier: '640267b0-707a-44d9-bc98-3bf535c0b5b5'
+Name: 'pub-water-level-sensors'
+Title: 'PUB Water Level Sensors'
+Description: 'The PUB Water Level Sensors layer shows all the drain water level sensors
+  around Singapore.'
+Topics:
+  - 'Environment'
+Keywords:
+  - 'drain'
+  - 'drain water level sensors'
+  - 'sensors'
+  - 'water level'
+Publisher:
+  Name: 'PUB, Singapore''s national water agency'
+  Admin 1:
+    Name: 'Nguyen Khac Tien Phuoc'
+    Department: 'PUBLIC UTILITIES BOARD'
+    Email: 'nguyen_khac_tien_phuoc@pub.gov.sg'
+Sources:
+  - 'PUB, Singapore''s national water agency'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Half-yearly'
+Last Updated: '2018-11-08T02:47:14.962616'
+Resources:
+  -
+    Identifier: '99176032-1393-4320-bd08-c1dbb47a3bc1'
+    Title: 'PUB Water Level Sensors (KML)'
+    Url: 'https://geo.data.gov.sg/pub-waterlevelsensors/2017/12/18/kml/pub-waterlevelsensors.kml'
+    Format: 'KML'
+    Last Updated: '2017-12-17T16:00:00'
