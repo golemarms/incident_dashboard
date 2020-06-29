@@ -3,15 +3,18 @@ options(shiny.reactlog=TRUE)
 
 server <- function(input, output, session) {
 
-    search_input <- reactiveVal(value="Environment Building")
+    search_input <- reactiveVal(value=initial_address)
 
     
     results_df <- reactive({
         search_input() %>% 
         get_results 
+        
     })
     
     top_result <- reactive({
+        req(nrow(results_df()) > 0)
+
         results_df() %>% 
         slice(1) %>% 
         tibble_to_sf 
@@ -19,6 +22,8 @@ server <- function(input, output, session) {
     
     ## augment dataframe with distance ranking
     combined_dist_sf <- reactive({
+        req(nrow(results_df()) > 0)
+        
         combined_sf %>% 
         mutate(distance=st_distance(., top_result(), by_element = T)) %>% 
         arrange(distance) %>% 
@@ -94,23 +99,35 @@ server <- function(input, output, session) {
     
     ## Display additional info on search results in the form of a table
     output$result_info <- renderTable({
+        validate(
+            need(nrow(results_df()) > 0, "Invalid search")
+        )
+
                                           results_df() %>% 
                                           slice(1) %>% 
                                           select(ADDRESS, POSTAL) %>% 
                                           pivot_longer(cols=everything())
         
-    })
+    },
+        striped = T,
+        hover= T,
+        bordered = T
+    )
     
 
     
-    ## Display additional info on search results in the form of a table
+    ## Display additional info on search results in tRhe form of a table
     output$nearest_devices <- renderTable({
         combined_dist_sf() %>% 
             as_tibble %>% 
             filter(!is.na(dist_rank)) %>% 
-            select(RANK=dist_rank, TYPE, ID, NAME)
-
-    })
+            select(RANK=dist_rank, `DISTANCE (m)`=dist_m, TYPE, ID, NAME)
+    },
+        digits=0,
+        striped = T,
+        hover= T,
+        bordered = T
+    )
 
     
 }

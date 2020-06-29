@@ -1,7 +1,5 @@
 ## Now
 
-- catch errors
-
 
 ## Later
 
