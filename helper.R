@@ -33,14 +33,13 @@ process_sf <- function(sf_raw) {
 pub_cctv_sf <- pub_cctv_sf_raw %>% process_sf
 pub_sensor_sf <- pub_sensor_sf_raw %>% process_sf
 
-pub_cctv_sf %>% leaflet %>% addTiles() %>% addMarkers()
 
 
 # Access Onemap api -------------------------------------------------------
 
 url <- "https://developers.onemap.sg/commonapi/search"
 
-searchVal <- "Hougang block 576"
+searchVal <- "Hougang"
 response <- httr::GET(url, query= list(searchVal=searchVal,
                                        returnGeom="Y",
                                        getAddrDetails='Y'))
@@ -103,13 +102,6 @@ icons <- awesomeIcons(
 )    
 
 
-top_result %>% 
-    leaflet() %>%
-    addTiles() %>%
-    addCircleMarkers(label=~ADDRESS, color="red") %>% 
-    addAwesomeMarkers(data=combined_dist_sf,
-                      icon=icons,
-                      popup=~popup,
-                      label=~label)
+
     
 
