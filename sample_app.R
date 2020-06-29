@@ -1,28 +1,44 @@
 library(shiny)
-library(leaflet)
-
-r_colors <- rgb(t(col2rgb(colors()) / 255))
-names(r_colors) <- colors()
+library(shinyWidgets)
 
 ui <- fluidPage(
-    leafletOutput("mymap"),
-    p(),
-    actionButton("recalc", "New points")
+    tags$h2("Update searchinput"),
+    searchInput(
+        inputId = "search", label = "Enter your text",
+        placeholder = "A placeholder",
+        btnSearch = icon("search"),
+        btnReset = icon("remove"),
+        width = "450px"
+    ),
+    br(),
+    verbatimTextOutput(outputId = "res"),
+    br(),
+    textInput(
+        inputId = "update_search",
+        label = "Update search"
+    ),
+    checkboxInput(
+        inputId = "trigger_search",
+        label = "Trigger update search",
+        value = TRUE
+    )
 )
 
 server <- function(input, output, session) {
     
-    points <- eventReactive(input$recalc, {
-        cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)
-    }, ignoreNULL = FALSE)
-    
-    output$mymap <- renderLeaflet({
-        leaflet() %>%
-            addProviderTiles(providers$Stamen.TonerLite,
-                             options = providerTileOptions(noWrap = TRUE)
-            ) %>%
-            addMarkers(data = points())
+    output$res <- renderPrint({
+        input$search
     })
+    
+    observeEvent(input$update_search, {
+        updateSearchInput(
+            session = session,
+            inputId = "search",
+            value = input$update_search,
+            trigger = input$trigger_search
+        )
+    }, ignoreInit = TRUE)
 }
 
 shinyApp(ui, server)
+

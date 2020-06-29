@@ -17,6 +17,10 @@ require(leaflet)
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
+            textInput("address_search", "Address Search"),
+            actionButton("address_search_btn", "Search"),
+            tableOutput("addresses_returned"),
+            width=3
 
         ),
 

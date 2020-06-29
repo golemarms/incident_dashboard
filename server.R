@@ -12,7 +12,15 @@ source("helper.R")
                               icon=icons,
                               popup=~popup,
                               label=~label)
-
     })
-
+    
+    search_input <- eventReactive(
+                        input$address_search_btn,
+                        input$address_search)
+    
+    output$addresses_returned <- renderTable({search_input() %>%
+                                              get_results %>% 
+                                              slice(1) %>% 
+                                              select(ADDRESS, POSTAL, LATITUDE, LONGTITUDE) %>% 
+                                              pivot_longer(cols=everything())})
 }

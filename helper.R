@@ -44,10 +44,19 @@ response <- httr::GET(url, query= list(searchVal=searchVal,
                                        returnGeom="Y",
                                        getAddrDetails='Y'))
 
-results_sf <- httr::content(response, as="text", encoding = "UTF-8") %>%
-                jsonlite::fromJSON() %>% 
-                .$results %>% 
-                as_tibble %>% 
+
+get_results <- function(searchVal){
+    httr::GET(url, query= list(searchVal=searchVal,
+                               returnGeom="Y",
+                               getAddrDetails='Y')) %>% 
+    httr::content(response, as="text", encoding = "UTF-8") %>% 
+    jsonlite::fromJSON() %>% 
+    .$results %>% 
+    as_tibble
+}
+
+
+results_sf <- get_results(searchVal) %>% 
                 st_as_sf(coords=c("LONGITUDE", "LATITUDE")) %>% 
                 st_set_crs(4326)
 
@@ -55,7 +64,6 @@ top_result <- results_sf %>% slice(1)
 
 
     
-
 lta_roadcam_sf_join <- lta_roadcam_sf %>%
     mutate(ID = paste0("LTA", UNIQUE_ID)) %>% 
     select(ID, INC_CRC) %>% 
