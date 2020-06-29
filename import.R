@@ -57,7 +57,13 @@ combined_sf <- bind_rows(lta_roadcam = lta_roadcam_sf_join,
                          pub_cctv = pub_cctv_sf_join,
                          pub_sensor = pub_sensor_sf_join,
                          .id = "TYPE") %>% 
-                left_join(colors_df)
+                left_join(colors_df) %>% 
+                mutate(
+                        popup = glue::glue("<b>Type:</b> {TYPE}",
+                                           "<b>ID:</b> {ID}",
+                                           "<b>Name:</b> {NAME}",
+                                           .sep="<br>")
+)
 
 
 saveRDS(combined_sf, "data/cache/combined_sf.Rds")
