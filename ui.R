@@ -6,8 +6,7 @@
 #
 #    http://shiny.rstudio.com/
 #
-require(tidyverse)
-require(leaflet)
+source("setup.R")
 
  ui <- fluidPage(
 
