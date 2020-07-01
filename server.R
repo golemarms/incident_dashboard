@@ -66,11 +66,10 @@ server <- function(input, output, session) {
     
     top_coords <- reactive({top_result() %>%
             st_coordinates() %>% 
-            as.double()
+            as.double() 
         })
     
     
-    observe(print(top_coords()))
     
     ## Update map upon input
     observe({
@@ -129,5 +128,12 @@ server <- function(input, output, session) {
         bordered = T
     )
 
-    
+    # observe({
+    #     # print(top_result())
+    #     cat("top crs", top_result() %>% st_crs() %>% .$epsg)
+    #     print(combined_sf)
+    #     cat("combined crs", combined_sf %>% st_crs() %>% .$epsg)
+    # })
+    # 
+    # observe(print(top_coords()))
 }

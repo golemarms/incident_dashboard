@@ -3,7 +3,7 @@ require(sf)
 require(leaflet)
 require(rvest)
 require(shiny)
-
+require(lwgeom)
 
 pub_cctv_sf_raw <- read_sf("data/pub-cctv/pub-cctv-geojson.geojson")
 pub_sensor_sf_raw <- read_sf("data/pub-water-level-sensors/pub-water-level-sensors-kml.kml")
@@ -58,12 +58,13 @@ combined_sf <- bind_rows(lta_roadcam = lta_roadcam_sf_join,
                          pub_sensor = pub_sensor_sf_join,
                          .id = "TYPE") %>% 
                 left_join(colors_df) %>% 
+                st_set_crs(4326) %>% 
                 mutate(
                         popup = glue::glue("<b>Type:</b> {TYPE}",
                                            "<b>ID:</b> {ID}",
                                            "<b>Name:</b> {NAME}",
                                            .sep="<br>")
-)
-
+                )
+            
 
 saveRDS(combined_sf, "data/cache/combined_sf.Rds")
