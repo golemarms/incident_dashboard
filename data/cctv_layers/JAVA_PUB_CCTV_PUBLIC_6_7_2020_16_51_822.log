@@ -1,0 +1,66 @@
+[06-Jul-2020 16:51:06] INFO:Wrapper class called
+[06-Jul-2020 16:51:06] INFO:Creating ConversionResponse object...
+[06-Jul-2020 16:51:06] INFO:Executing(Download) jar file name: BatchScheduler_4.jar
+[06-Jul-2020 16:51:06] INFO:Executing in: 2GVP-GEOAPP09
+[06-Jul-2020 16:51:06] INFO:INPUT ::: asciiTableFormat =  | asciiFieldTerminator = , | connection = oracle.jdbc.driver.T4CConnection@1b467e9 |  |  | destinationLayerName = PUB_CCTV_PUBLIC | downloadFileLocation = \\10.51.50.34\geospace\FME_SCHEDULER\SOURCE_FILES\PUB\download_files | downloadZipFileName = ivan_je_ong@pub.gov.sg_flood_PUB_CCTV_PUBLIC_B_OTO_06_Jul_2020_16_30_06_Jul_2020_16_51.zip | featureList = null | fmeLogFileLocation = \\10.51.50.34\geospace\FME_SCHEDULER\fmelogs\ | fmeLogFileName = PUB_CCTV_PUBLIC_6_7_2020_16_51_822.log | formatType = ESRI_SHAPE | ignoreColDecLenValidation = false | ignoreColLenValidation = false | includeASCIIFlag = false | jobId = 1265984 | lastUploadedDownloadedDate = null | selectedFieldList = [CCTVID, CATCHMENT, REF_NAME, GPS_LONG, GPS_LAT, X, Y, HYPERLINK] | sourceFileLocation = null | sourceFileName = null | GeometryType = null | sourceLayerName = PUB_CCTV_PUBLIC | sourceLayerId = 2829 | uploadDownloadType = B | userId = ivan_je_ong@pub.gov.sg | mappingFileName = null | templateFile = null | dgnSeedFile = null | cellLibrary = null | performSchemaChangeFlag = false | recordTypeCode = null | deleteFieldList = null
+[06-Jul-2020 16:51:06] INFO:Validating input parameters...
+[06-Jul-2020 16:51:06] INFO:Verifying prerequisite tables in database
+[06-Jul-2020 16:51:06] INFO:Initialize ArcGIS license
+[06-Jul-2020 16:51:06] INFO:ArcGIS license available - EngineGeoDB
+[06-Jul-2020 16:51:07] INFO:Licenses checked out successfully
+[06-Jul-2020 16:51:07] INFO:BaseConversion: Opening SDE Workspace...
+[06-Jul-2020 16:51:07] INFO:BaseConversion: SDE Workspace was opened successfully.
+[06-Jul-2020 16:51:08] INFO:Directory = \\10.51.50.34\geospace\FME_SCHEDULER\SOURCE_FILES\PUB\download_files/1265984
+[06-Jul-2020 16:51:08] INFO:Creating directory...
+[06-Jul-2020 16:51:08] INFO:Directory \\10.51.50.34\geospace\FME_SCHEDULER\SOURCE_FILES\PUB\download_files/1265984 created
+[06-Jul-2020 16:51:08] INFO:BaseConversion: Opening SDE Workspace...
+[06-Jul-2020 16:51:08] INFO:BaseConversion: SDE Workspace was opened successfully.
+[06-Jul-2020 16:51:08] INFO:Creating source and target datasets.
+[06-Jul-2020 16:51:08] INFO:Source geometry field = SHAPE
+[06-Jul-2020 16:51:08] INFO:Appending system fields.
+[06-Jul-2020 16:51:08] INFO:Downloading fields are -- SHAPE,INC_CRC,CCTVID,CATCHMENT,REF_NAME,GPS_LONG,GPS_LAT,X,Y,HYPERLINK,INC_CRC,FMEL_UPD_D
+[06-Jul-2020 16:51:08] INFO:Download type is [BULK]
+[06-Jul-2020 16:51:08] INFO:Exporting the feature class to Shapefile...
+[06-Jul-2020 16:51:08] INFO:Preparing field mapping...
+[06-Jul-2020 16:51:09] INFO:Field mapping prepared...
+[06-Jul-2020 16:51:11] INFO:Conversion initiated...
+[06-Jul-2020 16:51:13] INFO:Conversion completed...
+[06-Jul-2020 16:51:13] INFO:Resources released...
+[06-Jul-2020 16:51:13] INFO:Shapefile generation completed.
+[06-Jul-2020 16:51:13] INFO:ShapeConversion:::download()::conReqVO.getAttachmentAttrName():	null
+[06-Jul-2020 16:51:13] INFO:BaseConversion: Opening SDE Workspace...
+[06-Jul-2020 16:51:13] INFO:BaseConversion: SDE Workspace was opened successfully.
+[06-Jul-2020 16:51:13] WARN:Feature class [T_1265984] doesn't exist to delete
+[06-Jul-2020 16:51:13] INFO:Conversion completed successfuly
+[06-Jul-2020 16:51:13] INFO:Reading download feature count
+[06-Jul-2020 16:51:13] INFO:totalFeatureCount : 48
+[06-Jul-2020 16:51:13] INFO:UploadDownloadType == B, LayerName == PUB_CCTV_PUBLIC
+[06-Jul-2020 16:51:13] INFO:Writing feature count started...
+[06-Jul-2020 16:51:13] INFO:Writing feature count completed...
+[06-Jul-2020 16:51:13] INFO:Layer file generation started...
+[06-Jul-2020 16:52:48] INFO:Layer file of version [9.3] generation was successful
+[06-Jul-2020 16:52:48] INFO:Layer file generation completed...
+[06-Jul-2020 16:52:48] INFO:Entering updateMapSheetCount -- BaseConversion 1594025568108
+[06-Jul-2020 16:52:48] INFO:BaseConversion: Opening SDE Workspace...
+[06-Jul-2020 16:52:48] INFO:BaseConversion: SDE Workspace was opened successfully.
+[06-Jul-2020 16:52:48] INFO:Upload/Download Type== B
+[06-Jul-2020 16:52:48] INFO:LastUploadedDate== null
+[06-Jul-2020 16:52:48] INFO:strWhereClause== 
+[06-Jul-2020 16:52:48] INFO:count== 48
+[06-Jul-2020 16:52:48] INFO:count_si== 3906
+[06-Jul-2020 16:52:48] INFO:mapSheetCount==> 0
+[06-Jul-2020 16:52:48] INFO:Exiting updateMapSheetCount -- BaseConversion, Total Time Taken = 109
+[06-Jul-2020 16:52:48] INFO:Shape download completed
+[06-Jul-2020 16:52:48] INFO:Shutdown the interop
+[06-Jul-2020 16:52:48] INFO:Is OneMap Layer: true, Pref Indicator: 4
+[06-Jul-2020 16:52:48] INFO:oneMapFileLocation: \\10.51.50.34\geospace\ONEMAP_ICON_FILES\\PUB_CCTV_PUBLIC
+[06-Jul-2020 16:52:48] INFO:OneMap Icon Filename: cctv.png
+[06-Jul-2020 16:52:48] INFO:OneMap Icon File Exists: true
+[06-Jul-2020 16:53:02] INFO:Writing MetaData XML started...
+[06-Jul-2020 16:53:02] INFO:Writing MetaData XML completed...
+[06-Jul-2020 16:53:02] INFO:FMEConversion:::download()::conReqVO.getAttachmentAttrName():	null
+[06-Jul-2020 16:53:02] INFO:File zip started
+[06-Jul-2020 16:53:02] INFO:File zip completed
+[06-Jul-2020 16:53:02] INFO:conReqVO.getDownloadFileLocation(): \\10.51.50.34\geospace\FME_SCHEDULER\SOURCE_FILES\PUB\download_files
+[06-Jul-2020 16:53:02] INFO:FileLocation: SOURCE_FILES\PUB\DOWNLOAD_FILES
+[06-Jul-2020 16:53:02] INFO:---End---

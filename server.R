@@ -13,8 +13,8 @@ server <- function(input, output, session) {
     })
     
     top_result <- reactive({
-        req(nrow(results_df()) > 0)
-
+        req(nrow(results_df()) > 0) ## validation
+        
         results_df() %>% 
         slice(1) %>% 
         tibble_to_sf 
@@ -22,7 +22,7 @@ server <- function(input, output, session) {
     
     ## augment dataframe with distance ranking
     combined_dist_sf <- reactive({
-        req(nrow(results_df()) > 0)
+        req(nrow(results_df()) > 0) ## validation
         
         combined_sf %>% 
         mutate(distance=st_distance(., top_result(), by_element = T)) %>% 
@@ -60,6 +60,7 @@ server <- function(input, output, session) {
             combined_sf %>%
             leaflet() %>%
             addTiles() %>% 
+            addLegend(data= colors_df, colors=~color, labels = ~TYPE) %>% 
             {exec("fitBounds", . , !!!(combined_sf %>% st_bbox() %>% as.double()))} 
     })
     
@@ -80,32 +81,36 @@ server <- function(input, output, session) {
             {exec("flyToBounds", . , !!!bbox_bounds() )} %>% 
             addAwesomeMarkers(icon=icons(),
                               popup=~popup,
-                              label=~label) %>% 
+                              label=~label,
+                              clusterOptions = markerClusterOptions(
+                                                                    # maxClusterRadius=20,
+                                                                    disableClusteringAtZoom=14
+                                                                    )
+                              ) %>% 
             addCircleMarkers(data= top_result(),
                              color="red")  %>% 
             addPopups(lng = top_coords()[1],
                       lat = top_coords()[2],
             popup = top_result()[["ADDRESS"]],
             options = list(closeButton=T)
-            )
+            )  
         })
     
     
     ## Create reactive source, update search_input (reactiveVal)
+
     observeEvent(input$address_search_btn,
                  {search_input(input$address_search)})
     
     
-    ## Display additional info on search results in the form of a table
+    ## Display additional info on current address 
     output$result_info <- renderTable({
-        validate(
-            need(nrow(results_df()) > 0, "Invalid search")
-        )
-
-                                          results_df() %>% 
-                                          slice(1) %>% 
-                                          select(ADDRESS, POSTAL) %>% 
-                                          pivot_longer(cols=everything())
+          validate( need(nrow(results_df()) > 0, "Invalid search"))
+    
+          results_df() %>% 
+          slice(1) %>% 
+          select(ADDRESS, POSTAL) %>% 
+          pivot_longer(cols=everything())
         
     },
         striped = T,
@@ -113,9 +118,8 @@ server <- function(input, output, session) {
         bordered = T
     )
     
-
     
-    ## Display additional info on search results in tRhe form of a table
+    ## Display additional info on top n search results in the form of a table
     output$nearest_devices <- renderTable({
         combined_dist_sf() %>% 
             as_tibble %>% 

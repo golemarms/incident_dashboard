@@ -5,6 +5,9 @@ account: ivanong
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2524015
-bundleId: 3337231
+bundleId: 3398795
 url: https://ivanong.shinyapps.io/incident_dashboard/
-when: 1593578380.80385
+when: 1594886390.05365
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: ~$update1.pptx|update1.pptx

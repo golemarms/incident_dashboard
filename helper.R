@@ -4,6 +4,7 @@ source("setup.R")
 
 url <- "https://developers.onemap.sg/commonapi/search"
 
+combined_sf <- readRDS("data/cache/combined_sf2.Rds") %>% st_set_crs(CRS)
 
 get_results <- function(searchVal){
     #  Calls onemap API, and returns tibble of results
@@ -23,7 +24,7 @@ get_results <- function(searchVal){
 tibble_to_sf <- function(results_df) {
     results_df %>% 
     st_as_sf(coords=c("LONGITUDE", "LATITUDE")) %>% 
-    st_set_crs(4326)
+    st_set_crs(CRS)
 }
 
 

@@ -1,0 +1,66 @@
+[06-Jul-2020 16:48:05] INFO:Wrapper class called
+[06-Jul-2020 16:48:05] INFO:Creating ConversionResponse object...
+[06-Jul-2020 16:48:05] INFO:Executing(Download) jar file name: BatchScheduler_1.jar
+[06-Jul-2020 16:48:05] INFO:Executing in: 2GVP-GEOAPP09
+[06-Jul-2020 16:48:05] INFO:INPUT ::: asciiTableFormat =  | asciiFieldTerminator = , | connection = oracle.jdbc.driver.T4CConnection@b21112 |  |  | destinationLayerName = MCE_KPE_SPEED_CAMERA | downloadFileLocation = \\10.51.50.34\geospace\FME_SCHEDULER\SOURCE_FILES\PUB\download_files | downloadZipFileName = ivan_je_ong@pub.gov.sg_flood_MCE_KPE_SPEED_CAMERA_B_OTO_06_Jul_2020_16_30_06_Jul_2020_16_48.zip | featureList = null | fmeLogFileLocation = \\10.51.50.34\geospace\FME_SCHEDULER\fmelogs\ | fmeLogFileName = MCE_KPE_SPEED_CAMERA_6_7_2020_16_48_833.log | formatType = ESRI_SHAPE | ignoreColDecLenValidation = false | ignoreColLenValidation = false | includeASCIIFlag = false | jobId = 1265983 | lastUploadedDownloadedDate = null | selectedFieldList = [CAM_ID] | sourceFileLocation = null | sourceFileName = null | GeometryType = null | sourceLayerName = MCE_KPE_SPEED_CAMERA | sourceLayerId = 1951 | uploadDownloadType = B | userId = ivan_je_ong@pub.gov.sg | mappingFileName = null | templateFile = null | dgnSeedFile = null | cellLibrary = null | performSchemaChangeFlag = false | recordTypeCode = null | deleteFieldList = null
+[06-Jul-2020 16:48:05] INFO:Validating input parameters...
+[06-Jul-2020 16:48:05] INFO:Verifying prerequisite tables in database
+[06-Jul-2020 16:48:05] INFO:Initialize ArcGIS license
+[06-Jul-2020 16:48:05] INFO:ArcGIS license available - EngineGeoDB
+[06-Jul-2020 16:48:06] INFO:Licenses checked out successfully
+[06-Jul-2020 16:48:06] INFO:BaseConversion: Opening SDE Workspace...
+[06-Jul-2020 16:48:07] INFO:BaseConversion: SDE Workspace was opened successfully.
+[06-Jul-2020 16:48:07] INFO:Directory = \\10.51.50.34\geospace\FME_SCHEDULER\SOURCE_FILES\PUB\download_files/1265983
+[06-Jul-2020 16:48:07] INFO:Creating directory...
+[06-Jul-2020 16:48:07] INFO:Directory \\10.51.50.34\geospace\FME_SCHEDULER\SOURCE_FILES\PUB\download_files/1265983 created
+[06-Jul-2020 16:48:07] INFO:BaseConversion: Opening SDE Workspace...
+[06-Jul-2020 16:48:07] INFO:BaseConversion: SDE Workspace was opened successfully.
+[06-Jul-2020 16:48:07] INFO:Creating source and target datasets.
+[06-Jul-2020 16:48:08] INFO:Source geometry field = SHAPE
+[06-Jul-2020 16:48:08] INFO:Appending system fields.
+[06-Jul-2020 16:48:08] INFO:Downloading fields are -- SHAPE,INC_CRC,CAM_ID,INC_CRC,FMEL_UPD_D
+[06-Jul-2020 16:48:08] INFO:Download type is [BULK]
+[06-Jul-2020 16:48:08] INFO:Exporting the feature class to Shapefile...
+[06-Jul-2020 16:48:08] INFO:Preparing field mapping...
+[06-Jul-2020 16:48:08] INFO:Field mapping prepared...
+[06-Jul-2020 16:48:10] INFO:Conversion initiated...
+[06-Jul-2020 16:48:12] INFO:Conversion completed...
+[06-Jul-2020 16:48:12] INFO:Resources released...
+[06-Jul-2020 16:48:12] INFO:Shapefile generation completed.
+[06-Jul-2020 16:48:12] INFO:ShapeConversion:::download()::conReqVO.getAttachmentAttrName():	null
+[06-Jul-2020 16:48:12] INFO:BaseConversion: Opening SDE Workspace...
+[06-Jul-2020 16:48:12] INFO:BaseConversion: SDE Workspace was opened successfully.
+[06-Jul-2020 16:48:12] WARN:Feature class [T_1265983] doesn't exist to delete
+[06-Jul-2020 16:48:12] INFO:Conversion completed successfuly
+[06-Jul-2020 16:48:12] INFO:Reading download feature count
+[06-Jul-2020 16:48:12] INFO:totalFeatureCount : 13
+[06-Jul-2020 16:48:12] INFO:UploadDownloadType == B, LayerName == MCE_KPE_SPEED_CAMERA
+[06-Jul-2020 16:48:12] INFO:Writing feature count started...
+[06-Jul-2020 16:48:12] INFO:Writing feature count completed...
+[06-Jul-2020 16:48:12] INFO:Layer file generation started...
+[06-Jul-2020 16:49:45] INFO:Layer file of version [9.3] generation was successful
+[06-Jul-2020 16:49:45] INFO:Layer file generation completed...
+[06-Jul-2020 16:49:45] INFO:Entering updateMapSheetCount -- BaseConversion 1594025385772
+[06-Jul-2020 16:49:45] INFO:BaseConversion: Opening SDE Workspace...
+[06-Jul-2020 16:49:45] INFO:BaseConversion: SDE Workspace was opened successfully.
+[06-Jul-2020 16:49:45] INFO:Upload/Download Type== B
+[06-Jul-2020 16:49:45] INFO:LastUploadedDate== null
+[06-Jul-2020 16:49:45] INFO:strWhereClause== 
+[06-Jul-2020 16:49:45] INFO:count== 13
+[06-Jul-2020 16:49:45] INFO:count_si== 3906
+[06-Jul-2020 16:49:45] INFO:mapSheetCount==> 0
+[06-Jul-2020 16:49:45] INFO:Exiting updateMapSheetCount -- BaseConversion, Total Time Taken = 125
+[06-Jul-2020 16:49:45] INFO:Shape download completed
+[06-Jul-2020 16:49:46] INFO:Shutdown the interop
+[06-Jul-2020 16:49:46] INFO:Is OneMap Layer: true, Pref Indicator: 4
+[06-Jul-2020 16:49:46] INFO:oneMapFileLocation: \\10.51.50.34\geospace\ONEMAP_ICON_FILES\\MCE_KPE_SPEED_CAMERA
+[06-Jul-2020 16:49:46] INFO:OneMap Icon Filename: icon_enforcementCam_20-01.jpg
+[06-Jul-2020 16:49:46] INFO:OneMap Icon File Exists: true
+[06-Jul-2020 16:49:52] INFO:Writing MetaData XML started...
+[06-Jul-2020 16:49:52] INFO:Writing MetaData XML completed...
+[06-Jul-2020 16:49:52] INFO:FMEConversion:::download()::conReqVO.getAttachmentAttrName():	null
+[06-Jul-2020 16:49:52] INFO:File zip started
+[06-Jul-2020 16:49:52] INFO:File zip completed
+[06-Jul-2020 16:49:52] INFO:conReqVO.getDownloadFileLocation(): \\10.51.50.34\geospace\FME_SCHEDULER\SOURCE_FILES\PUB\download_files
+[06-Jul-2020 16:49:52] INFO:FileLocation: SOURCE_FILES\PUB\DOWNLOAD_FILES
+[06-Jul-2020 16:49:52] INFO:---End---
