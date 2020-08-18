@@ -4,26 +4,44 @@ options(shiny.reactlog=TRUE)
 server <- function(input, output, session) {
 
     search_input <- reactiveVal(value=initial_address)
+    top_result <- reactiveVal()
 
     
     results_df <- reactive({
         search_input() %>% 
         get_results 
-        
     })
     
-    top_result <- reactive({
+    observe({
         req(nrow(results_df()) > 0) ## validation
-        
-        results_df() %>% 
-        slice(1) %>% 
-        tibble_to_sf 
+        top_result(
+            results_df() %>% 
+            slice(1) %>% 
+            tibble_to_sf 
+        )
+    })
+    
+    # Change button if geolocation disabled
+    observe({
+        if (!is.null(input$geolocation) && input$geolocation == FALSE) {
+            updateActionButton(session, "geolocate_btn", label = "Geolocation disabled")
+        }
+    })
+
+    ## Geolocate
+     observeEvent(input$geolocate_btn, {
+        req(input$geolocation) ## geolocate input flag must be set to true
+         
+        geolocate_df <-  tibble(ADDRESS="My location", POSTAL="") %>%
+                            mutate(LONGITUDE = input$geolocate_long,
+                                   LATITUDE = input$geolocate_lat) %>% 
+                            tibble_to_sf()
+        top_result(geolocate_df)
     })
     
     ## augment dataframe with distance ranking
     combined_dist_sf <- reactive({
-        req(nrow(results_df()) > 0) ## validation
-        
+        req(nrow(top_result()) > 0) ## validation
         combined_sf %>% 
         mutate(distance=st_distance(., top_result(), by_element = T)) %>% 
         arrange(distance) %>% 
@@ -105,10 +123,10 @@ server <- function(input, output, session) {
     
     ## Display additional info on current address 
     output$result_info <- renderTable({
-          validate( need(nrow(results_df()) > 0, "Invalid search"))
+          validate( need(nrow(top_result()) > 0, "Invalid search"))
     
-          results_df() %>% 
-          slice(1) %>% 
+          top_result() %>% 
+          as_tibble() %>% 
           select(ADDRESS, POSTAL) %>% 
           pivot_longer(cols=everything())
         
@@ -132,6 +150,11 @@ server <- function(input, output, session) {
         bordered = T
     )
 
+    observe({
+        print(input$geolocation)
+        print(input$geolocate_lat)
+        print(input$geolocate_long)
+    })
     # observe({
     #     # print(top_result())
     #     cat("top crs", top_result() %>% st_crs() %>% .$epsg)

@@ -3,6 +3,7 @@ require(sf)
 require(leaflet)
 require(rvest)
 require(shiny)
+require(lwgeom)
 
 # install.packages("lwgeom")
 
